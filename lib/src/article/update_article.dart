@@ -2,15 +2,14 @@
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart'
-    show Article, ArticleBasket, LineOfArticles;
-import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
+import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/update_article.dart';
 import 'package:services_weebi/src/db_store_refs.dart';
 
 class UpdateArticleRpc<A extends ArticleAbstract>
-    extends UpdateArticleAbstractRpc<A> implements EndpointBase<A, A> {
+    extends UpdateArticleAbstractRpc<A> {
   final DbArticles _database;
 
   const UpdateArticleRpc(this._database);
@@ -18,7 +17,7 @@ class UpdateArticleRpc<A extends ArticleAbstract>
   @override
   Future<A> request(A data) async {
     final dbStore = DbStoresWeebi().articles;
-    final recordSnapshot = await dbStore.find(_database.db) ?? [];
+    final recordSnapshot = await dbStore.find(_database.db);
     if (recordSnapshot.isEmpty) {
       throw 'no articles';
     }

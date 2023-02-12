@@ -3,12 +3,10 @@ import 'package:sembast/sembast.dart' as sembast;
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
-import 'package:models_weebi/base.dart' show EndpointBase;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/get_lines.dart';
 
-class GetLinesRpc extends GetArticlesLinesAbstractRpc
-    implements EndpointBase<List<LineOfArticles>, void> {
+class GetLinesRpc extends GetArticlesLinesAbstractRpc {
   final DbArticles _database;
 
   const GetLinesRpc(this._database);

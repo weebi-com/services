@@ -4,9 +4,9 @@ import 'package:sembast/sembast.dart';
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show TicketWeebi;
-import 'package:models_weebi/base.dart' show EndpointBase;
+import 'package:services_weebi/src/ticket_no_sembast/add_ticket.dart';
 
-class AddTicketRpc implements EndpointBase<TicketWeebi, TicketWeebi> {
+class AddTicketRpc extends AddTicketAbstractRpc {
   final DbTickets _db;
 
   const AddTicketRpc(this._db);

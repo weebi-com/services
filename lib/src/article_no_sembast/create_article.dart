@@ -1,6 +1,3 @@
-// Package imports:
-import 'package:collection/collection.dart';
-
 // Project imports:
 import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
 

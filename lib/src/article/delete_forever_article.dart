@@ -1,14 +1,13 @@
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
 
-import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
+import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:models_weebi/db.dart';
 import 'package:sembast/sembast.dart';
 import 'package:services_weebi/src/article_no_sembast/delete_forever_article.dart';
 
 class DeleteForeverArticleRpc<A extends ArticleAbstract>
-    extends DeleteForeverArticleAbstractRpc<A>
-    implements EndpointBase<void, A> {
+    extends DeleteForeverArticleAbstractRpc<A> {
   final DbArticles _database;
 
   DeleteForeverArticleRpc(this._database);

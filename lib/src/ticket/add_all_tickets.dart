@@ -4,12 +4,11 @@ import 'package:sembast/sembast.dart';
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show TicketWeebi;
-import 'package:models_weebi/base.dart' show EndpointBase;
+import 'package:services_weebi/src/ticket_no_sembast/add_all_tickets.dart';
 
-class AddAllTicketsRpc implements EndpointBase<void, Set<TicketWeebi>> {
+class AddAllTicketsRpc extends AddAllTicketsAbstractRpc {
   final DbTickets _db;
-
-  AddAllTicketsRpc(this._db);
+  const AddAllTicketsRpc(this._db);
 
   @override
   Future<void> request(Set<TicketWeebi> tickets) async {
@@ -18,8 +17,6 @@ class AddAllTicketsRpc implements EndpointBase<void, Set<TicketWeebi>> {
     for (final ticket in tickets) {
       ticketsJonsSembastList.add(ticket.toMap());
     }
-
     await dbStore.addAll(_db.db, ticketsJonsSembastList);
-    // final c = await dbStore.count(_database);
   }
 }

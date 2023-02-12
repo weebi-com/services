@@ -5,8 +5,9 @@ import 'package:models_weebi/db.dart';
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show TicketWeebi;
 import 'package:models_weebi/base.dart' show EndpointBase;
+import 'package:services_weebi/src/ticket_no_sembast/disable_ticket.dart';
 
-class DisableTicketRpc implements EndpointBase<TicketWeebi, TicketWeebi> {
+class DisableTicketRpc extends DisableTicketAbstractRpc {
   final DbTickets _db;
 
   DisableTicketRpc(this._db);

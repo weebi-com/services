@@ -4,12 +4,12 @@ import 'package:sembast/sembast.dart';
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
-import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
+import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/create_article.dart';
 
 class CreateArticleRpc<A extends ArticleAbstract>
-    extends CreateArticleAbstractRpc<A> implements EndpointBase<A, A> {
+    extends CreateArticleAbstractRpc<A> {
   final DbArticles _database;
 
   const CreateArticleRpc(this._database);
@@ -27,7 +27,7 @@ class CreateArticleRpc<A extends ArticleAbstract>
 
         line.articles.add(data);
         final updatedLineMap =
-            await dbStore.record(lineKey).update(_database.db, line!.toMap());
+            await dbStore.record(lineKey).update(_database.db, line.toMap());
         if (isTest) {
           final d = LineOfArticles.fromMap(updatedLineMap!)
               .articles

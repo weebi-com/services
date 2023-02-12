@@ -4,11 +4,10 @@ import 'package:models_weebi/db.dart';
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show TicketWeebi;
-import 'package:models_weebi/base.dart' show EndpointBase;
+import 'package:services_weebi/src/ticket_no_sembast/restore_ticket.dart';
 
-class RestoreTicketRpc implements EndpointBase<TicketWeebi, TicketWeebi> {
+class RestoreTicketRpc extends RestoreTicketAbstractRpc {
   final DbTickets _db;
-
   RestoreTicketRpc(this._db);
 
   @override

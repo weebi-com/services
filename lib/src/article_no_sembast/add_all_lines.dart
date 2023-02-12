@@ -2,7 +2,6 @@
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
-import 'package:models_weebi/db.dart';
 import 'package:models_weebi/base.dart' show EndpointBase;
 
 // this adds all but does not erase anything when importing
