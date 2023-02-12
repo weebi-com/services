@@ -15,22 +15,22 @@ import 'package:services_weebi/src/ticket_no_sembast/get_tickets.dart';
 import 'package:services_weebi/src/ticket_no_sembast/restore_ticket.dart';
 
 abstract class TicketsServiceAbstract {
-  final AddTicketAbstractRpc addTicketAbstractRpc;
-  final DisableTicketAbstractRpc disableTicketAbstractRpc;
-  final GetAllTicketsAbstractRpc getAllTicketsAbstractRpc;
-  final RestoreTicketAbstractRpc restoreTicketAbstractRpc;
-  final AddAllTicketsAbstractRpc addAllTicketsAbstractRpc;
-  final DeleteAllTicketsAbstractRpc deleteAllTicketsAbstractRpc;
-  final DeleteTicketAbstractRpc deleteTicketAbstractRpc;
+  final AddTicketAbstractRpc addTicketRpc;
+  final DisableTicketAbstractRpc disableTicketRpc;
+  final GetAllTicketsAbstractRpc getAllTicketsRpc;
+  final RestoreTicketAbstractRpc restoreTicketRpc;
+  final AddAllTicketsAbstractRpc addAllTicketsRpc;
+  final DeleteAllTicketsAbstractRpc deleteAllTicketsRpc;
+  final DeleteTicketAbstractRpc deleteTicketRpc;
 
   TicketsServiceAbstract(
-    this.addTicketAbstractRpc,
-    this.disableTicketAbstractRpc,
-    this.getAllTicketsAbstractRpc,
-    this.restoreTicketAbstractRpc,
-    this.addAllTicketsAbstractRpc,
-    this.deleteAllTicketsAbstractRpc,
-    this.deleteTicketAbstractRpc,
+    this.addTicketRpc,
+    this.disableTicketRpc,
+    this.getAllTicketsRpc,
+    this.restoreTicketRpc,
+    this.addAllTicketsRpc,
+    this.deleteAllTicketsRpc,
+    this.deleteTicketRpc,
   );
 }
 
@@ -38,30 +38,26 @@ class TicketsServiceNoSembast implements TicketsServiceAbstract {
   const TicketsServiceNoSembast();
 
   @override
-  AddAllTicketsAbstractRpc get addAllTicketsAbstractRpc =>
-      AddAllTicketsFakeRpc();
+  AddAllTicketsAbstractRpc get addAllTicketsRpc => AddAllTicketsFakeRpc();
 
   @override
-  AddTicketAbstractRpc get addTicketAbstractRpc => AddTicketFakeRpc();
+  AddTicketAbstractRpc get addTicketRpc => AddTicketFakeRpc();
 
   @override
-  DeleteAllTicketsAbstractRpc get deleteAllTicketsAbstractRpc =>
+  DeleteAllTicketsAbstractRpc get deleteAllTicketsRpc =>
       DeleteAllTicketsFakeRpc();
 
   @override
-  DeleteTicketAbstractRpc get deleteTicketAbstractRpc => DeleteTicketFakeRpc();
+  DeleteTicketAbstractRpc get deleteTicketRpc => DeleteTicketFakeRpc();
 
   @override
-  DisableTicketAbstractRpc get disableTicketAbstractRpc =>
-      DisableTicketFakeRpc();
+  DisableTicketAbstractRpc get disableTicketRpc => DisableTicketFakeRpc();
 
   @override
-  GetAllTicketsAbstractRpc get getAllTicketsAbstractRpc =>
-      GetAllTicketsFakeRpc();
+  GetAllTicketsAbstractRpc get getAllTicketsRpc => GetAllTicketsFakeRpc();
 
   @override
-  RestoreTicketAbstractRpc get restoreTicketAbstractRpc =>
-      RestoreTicketFakeRpc();
+  RestoreTicketAbstractRpc get restoreTicketRpc => RestoreTicketFakeRpc();
 }
 
 class TicketsService extends TicketsServiceAbstract {

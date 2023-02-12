@@ -1,12 +1,5 @@
-// Package imports:
-import 'package:sembast/sembast.dart';
-
 // Project imports:
-import 'package:models_weebi/weebi_models.dart'
-    show Article, ArticleBasket, LineOfArticles;
 import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
-import 'package:models_weebi/db.dart';
-import 'package:services_weebi/src/db_store_refs.dart';
 
 abstract class UpdateArticleAbstractRpc<ArticleAbstract>
     implements EndpointBase<ArticleAbstract, ArticleAbstract> {
