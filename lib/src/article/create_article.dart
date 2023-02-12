@@ -3,8 +3,7 @@ import 'package:collection/collection.dart';
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart'
-    show ArticleBasket, Article, LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
 import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
 import 'package:models_weebi/db.dart';
 
