@@ -18,52 +18,89 @@ import 'package:services_weebi/src/article_no_sembast/get_lines.dart';
 import 'package:services_weebi/src/article_no_sembast/update_article.dart';
 import 'package:services_weebi/src/article_no_sembast/update_line.dart';
 
-abstract class ArticlesServiceAbstract {}
+abstract class ArticlesServiceAbstract {
+  final GetArticlesLinesAbstractRpc getArticlesLinesRpc;
+  final AddAllArticlesLineAbstract addAllArticleLinesRpc;
+  final UpdateArticleLineAbstractRpc updateArticleLineRpc;
+  final DeleteForeverLineArticleAbstractRpc deleteForeverLineRpc;
+  final UpdateArticleAbstractRpc updateArticleRpc;
+  final CreateArticleLineAbstractRpc createLineArticleRpc;
+  final CreateArticleAbstractRpc createArticleRpc;
+  final DeleteForeverArticleAbstractRpc deleteForeverArticleRpc;
+  final DeleteAllArticleLinesAbstractRpc deleteAllLinesRpc;
 
-class ArticlesServiceNoSembast extends ArticlesServiceAbstract {
-  final GetLinesFakeRpc getLinesFakeRpc;
-  final AddAllLineArticlesFakeRpc addAllLinesFakeRpc;
-  final UpdateLineArticleFakeRpc updateLineFakeRpc;
-  final DeleteForeverLineArticleFakeRpc deleteForeverLineFakeRpc;
-  final UpdateArticleFakeRpc updateArticleFakeRpc;
-  final CreateArticleLineFakeRpc createLineArticleFakeRpc;
-  final CreateArticleFakeRpc createArticleFakeRpc;
-  final DeleteForeverArticleFakeRpc deleteForeverArticleFakeRpc;
-  final DeleteAllArticleLinesFakeRpc deleteAllLinesFakeRpc;
-  static final count = 9;
-
-  ArticlesServiceNoSembast(
-      this.getLinesFakeRpc,
-      this.addAllLinesFakeRpc,
-      this.updateLineFakeRpc,
-      this.deleteForeverLineFakeRpc,
-      this.updateArticleFakeRpc,
-      this.createLineArticleFakeRpc,
-      this.createArticleFakeRpc,
-      this.deleteForeverArticleFakeRpc,
-      this.deleteAllLinesFakeRpc);
-}
-
-class ArticlesService extends ArticlesServiceAbstract {
-  static final count = 9;
-  final GetLinesRpc getLinesRpc;
-  final AddAllLineArticlesRpc addAllLinesRpc;
-  final UpdateLineArticleRpc updateLineRpc;
-  final DeleteForeverLineArticleRpc deleteForeverLineRpc;
-  final UpdateArticleRpc updateArticleRpc;
-  final CreateArticleLineRpc createLineArticleRpc;
-  final CreateArticleRpc createArticleRpc;
-  final DeleteForeverArticleRpc deleteForeverArticleRpc;
-  final DeleteAllArticleLinesRpc deleteAllLinesRpc;
-
-  ArticlesService(
-      this.getLinesRpc,
-      this.addAllLinesRpc,
-      this.updateLineRpc,
+  ArticlesServiceAbstract(
+      this.getArticlesLinesRpc,
+      this.addAllArticleLinesRpc,
+      this.updateArticleLineRpc,
       this.deleteForeverLineRpc,
       this.updateArticleRpc,
       this.createLineArticleRpc,
       this.createArticleRpc,
       this.deleteForeverArticleRpc,
       this.deleteAllLinesRpc);
+}
+
+class ArticlesServiceNoSembast implements ArticlesServiceAbstract {
+  static final count = 9;
+
+  const ArticlesServiceNoSembast();
+
+  @override
+  AddAllArticlesLineAbstract get addAllArticleLinesRpc =>
+      AddAllLineArticlesFakeRpc();
+
+  @override
+  CreateArticleAbstractRpc get createArticleRpc => CreateArticleFakeRpc();
+
+  @override
+  CreateArticleLineAbstractRpc get createLineArticleRpc =>
+      CreateArticleLineFakeRpc();
+
+  @override
+  DeleteAllArticleLinesAbstractRpc get deleteAllLinesRpc =>
+      DeleteAllArticleLinesFakeRpc();
+
+  @override
+  DeleteForeverArticleAbstractRpc get deleteForeverArticleRpc =>
+      DeleteForeverArticleFakeRpc();
+
+  @override
+  DeleteForeverLineArticleAbstractRpc get deleteForeverLineRpc =>
+      DeleteForeverLineArticleFakeRpc();
+
+  @override
+  GetArticlesLinesAbstractRpc get getArticlesLinesRpc => GetLinesFakeRpc();
+
+  @override
+  UpdateArticleAbstractRpc get updateArticleRpc => UpdateArticleFakeRpc();
+
+  @override
+  UpdateArticleLineAbstractRpc get updateArticleLineRpc =>
+      UpdateLineArticleFakeRpc();
+}
+
+class ArticlesService extends ArticlesServiceAbstract {
+  static final count = 9;
+  ArticlesService(
+    GetLinesRpc getLinesRpc,
+    AddAllLineArticlesRpc addAllLinesRpc,
+    UpdateLineArticleRpc updateLineRpc,
+    DeleteForeverLineArticleRpc deleteForeverLineRpc,
+    UpdateArticleRpc updateArticleRpc,
+    CreateArticleLineRpc createLineArticleRpc,
+    CreateArticleRpc createArticleRpc,
+    DeleteForeverArticleRpc deleteForeverArticleRpc,
+    DeleteAllArticleLinesRpc deleteAllLinesRpc,
+  ) : super(
+          getLinesRpc,
+          addAllLinesRpc,
+          updateLineRpc,
+          deleteForeverLineRpc,
+          updateArticleRpc,
+          createLineArticleRpc,
+          createArticleRpc,
+          deleteForeverArticleRpc,
+          deleteAllLinesRpc,
+        );
 }

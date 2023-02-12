@@ -6,7 +6,15 @@ import 'package:models_weebi/db.dart';
 import 'package:models_weebi/base.dart' show EndpointBase;
 
 // this adds all but does not erase anything when importing
-class AddAllLineArticlesFakeRpc
+
+abstract class AddAllArticlesLineAbstract
+    implements EndpointBase<void, List<LineOfArticles>> {
+  const AddAllArticlesLineAbstract();
+  @override
+  Future<void> request(List<LineOfArticles> lines) async {}
+}
+
+class AddAllLineArticlesFakeRpc extends AddAllArticlesLineAbstract
     implements EndpointBase<void, List<LineOfArticles>> {
   const AddAllLineArticlesFakeRpc();
 

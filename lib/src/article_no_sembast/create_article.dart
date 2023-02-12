@@ -4,8 +4,18 @@ import 'package:collection/collection.dart';
 // Project imports:
 import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
 
+abstract class CreateArticleAbstractRpc<ArticleAbstract>
+    implements EndpointBase<ArticleAbstract, ArticleAbstract> {
+  const CreateArticleAbstractRpc();
+  @override
+  Future<ArticleAbstract> request(ArticleAbstract data,
+      {bool isTest = false}) async {
+    return data;
+  }
+}
+
 class CreateArticleFakeRpc<A extends ArticleAbstract>
-    implements EndpointBase<A, A> {
+    extends CreateArticleAbstractRpc<A> implements EndpointBase<A, A> {
   const CreateArticleFakeRpc();
 
   @override

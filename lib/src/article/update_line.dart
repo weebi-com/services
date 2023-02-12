@@ -5,9 +5,10 @@ import 'package:sembast/sembast.dart';
 import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
 import 'package:models_weebi/base.dart' show EndpointBase;
 import 'package:models_weebi/db.dart';
+import 'package:services_weebi/src/article_no_sembast/update_line.dart';
 import 'package:services_weebi/src/db_store_refs.dart';
 
-class UpdateLineArticleRpc
+class UpdateLineArticleRpc extends UpdateArticleLineAbstractRpc
     implements EndpointBase<LineOfArticles, LineOfArticles> {
   final DbArticles _database;
 

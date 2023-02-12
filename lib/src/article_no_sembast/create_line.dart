@@ -11,11 +11,19 @@ import 'package:models_weebi/base.dart' show EndpointBase;
 // import 'package:models_weebi/weebi_models.dart' show ArticleWeebi;
 // import 'package:models_weebi/weebi_models.dart' show LotWeebi;
 
-class CreateArticleLineFakeRpc
+abstract class CreateArticleLineAbstractRpc
     implements EndpointBase<LineOfArticles, LineOfArticles> {
-  final DbArticles _database;
+  const CreateArticleLineAbstractRpc();
 
-  CreateArticleLineFakeRpc(this._database);
+  @override
+  Future<LineOfArticles> request(LineOfArticles data) async {
+    return data;
+  }
+}
+
+class CreateArticleLineFakeRpc extends CreateArticleLineAbstractRpc
+    implements EndpointBase<LineOfArticles, LineOfArticles> {
+  CreateArticleLineFakeRpc();
 
   @override
   Future<LineOfArticles> request(LineOfArticles data) async {

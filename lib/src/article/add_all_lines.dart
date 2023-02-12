@@ -5,9 +5,10 @@ import 'package:sembast/sembast.dart';
 import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
 import 'package:models_weebi/db.dart';
 import 'package:models_weebi/base.dart' show EndpointBase;
+import 'package:services_weebi/src/article_no_sembast/add_all_lines.dart';
 
 // this adds all but does not erase anything when importing
-class AddAllLineArticlesRpc
+class AddAllLineArticlesRpc extends AddAllArticlesLineAbstract
     implements EndpointBase<void, List<LineOfArticles>> {
   final DbArticles _database;
 
