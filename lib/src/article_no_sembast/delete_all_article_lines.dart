@@ -14,7 +14,7 @@ abstract class DeleteAllArticleLinesAbstractRpc
 
 class DeleteAllArticleLinesFakeRpc extends DeleteAllArticleLinesAbstractRpc
     implements EndpointBase<void, List<LineOfArticles>> {
-  DeleteAllArticleLinesFakeRpc();
+  const DeleteAllArticleLinesFakeRpc();
 
   @override
   Future<void> request(List<LineOfArticles> products) async {
