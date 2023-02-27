@@ -13,7 +13,7 @@ class AddAllTicketsRpc extends AddAllTicketsAbstractRpc {
   @override
   Future<void> request(Set<TicketWeebi> tickets) async {
     final dbStore = intMapStoreFactory.store('tickets');
-    List<Map<String, Object?>> ticketsJonsSembastList = [];
+    List<Map<String, Object>> ticketsJonsSembastList = [];
     for (final ticket in tickets) {
       ticketsJonsSembastList.add(ticket.toMap());
     }

@@ -23,13 +23,13 @@ class CreateArticleRpc<A extends ArticleAbstract>
           finder: Finder(filter: Filter.equals('id', data.lineId)));
       if (lineKey != null) {
         final lineSnap = await dbStore.record(lineKey).get(_database.db);
-        final line = LineOfArticles.fromMap(lineSnap!);
+        final line = LineOfArticles.fromMap(lineSnap);
 
         line.articles.add(data);
         final updatedLineMap =
             await dbStore.record(lineKey).update(_database.db, line.toMap());
         if (isTest) {
-          final d = LineOfArticles.fromMap(updatedLineMap!)
+          final d = LineOfArticles.fromMap(updatedLineMap)
               .articles
               .firstWhereOrNull((element) =>
                   element.lineId == data.lineId && element.id == data.id);
