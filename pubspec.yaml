@@ -1,17 +1,18 @@
 name: services_weebi
+version: 1.0.1
+homepage: http://weebi.com
+publish_to: https://onepub.dev/api/xnxpsdavuh/
 description: A starting point for Dart libraries or applications.
-version: 1.0.0
-publish_to: none
-# homepage: https://www.example.com
-
-environment:
-  sdk: ">=2.7.0 <3.0.0"  #sdk: '>=2.18.5 <3.0.0'
-
-dependencies:
+environment: 
+  sdk: '>=2.7.0 <3.0.0'
+dependencies: 
+  collection: ^1.15.0
   models_weebi:
-    path: ../models_weebi
+    hosted:
+      url: https://onepub.dev/api/xnxpsdavuh/
+      name: models_weebi
+    version: ^1.0.5
   sembast: ^3.3.1
-
-dev_dependencies:
-  #lints: ^2.0.0
+  
+dev_dependencies: 
   test: ^1.16.0
