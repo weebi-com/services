@@ -175,14 +175,14 @@ packages:
       name: models_base
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.3"
+    version: "1.3.7"
   models_weebi:
     dependency: "direct main"
     description:
       name: models_weebi
       url: "https://onepub.dev/api/xnxpsdavuh/"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.9"
   node_preamble:
     dependency: transitive
     description:
