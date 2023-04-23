@@ -4,7 +4,6 @@ import 'package:sembast/sembast.dart';
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show TicketWeebi;
-import 'package:models_weebi/base.dart' show EndpointBase;
 import 'package:services_weebi/src/ticket_no_sembast/get_tickets.dart';
 
 class GetAllTicketsRpc extends GetAllTicketsAbstractRpc {

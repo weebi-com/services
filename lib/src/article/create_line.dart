@@ -2,7 +2,7 @@
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show ArticleLines;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/create_line.dart';
 
@@ -15,12 +15,12 @@ class CreateArticleLineRpc extends CreateArticleLineAbstractRpc {
   CreateArticleLineRpc(this._database);
 
   @override
-  Future<LineOfArticles> request(LineOfArticles data) async {
+  Future<ArticleLines> request(ArticleLines data) async {
     final dbStore = intMapStoreFactory.store('articles');
     final int key = await dbStore.add(_database.db, data.toMap());
     final raw = await dbStore.record(key).get(_database.db);
     if (raw != null) {
-      final p = LineOfArticles.fromMap(raw);
+      final p = ArticleLines.fromMap(raw);
       return p;
     } else {
       throw 'error CreateArticleLineRpc null';

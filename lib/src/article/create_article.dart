@@ -3,7 +3,7 @@ import 'package:collection/collection.dart';
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show ArticleLines;
 import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/create_article.dart';
@@ -23,13 +23,13 @@ class CreateArticleRpc<A extends ArticleAbstract>
           finder: Finder(filter: Filter.equals('id', data.lineId)));
       if (lineKey != null) {
         final lineSnap = await dbStore.record(lineKey).get(_database.db);
-        final line = LineOfArticles.fromMap(lineSnap);
+        final line = ArticleLines.fromMap(lineSnap);
 
         line.articles.add(data);
         final updatedLineMap =
             await dbStore.record(lineKey).update(_database.db, line.toMap());
         if (isTest) {
-          final d = LineOfArticles.fromMap(updatedLineMap)
+          final d = ArticleLines.fromMap(updatedLineMap)
               .articles
               .firstWhereOrNull((element) =>
                   element.lineId == data.lineId && element.id == data.id);

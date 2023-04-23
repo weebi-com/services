@@ -2,7 +2,7 @@
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show ArticleLines;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/add_all_lines.dart';
 
@@ -13,7 +13,7 @@ class AddAllLineArticlesRpc extends AddAllArticlesLineAbstract {
   const AddAllLineArticlesRpc(this._database);
 
   @override
-  Future<void> request(List<LineOfArticles> lines) async {
+  Future<void> request(List<ArticleLines> lines) async {
     final dbStore = intMapStoreFactory.store('articles');
     dbStore.addAll(_database.db, lines.map((e) => e.toMap()).toList());
   }

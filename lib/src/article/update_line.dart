@@ -2,7 +2,7 @@
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show ArticleLines;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/update_line.dart';
 import 'package:services_weebi/src/db_store_refs.dart';
@@ -13,7 +13,7 @@ class UpdateLineArticleRpc extends UpdateArticleLineAbstractRpc {
   const UpdateLineArticleRpc(this._database);
 
   @override
-  Future<LineOfArticles> request(LineOfArticles data) async {
+  Future<ArticleLines> request(ArticleLines data) async {
     final dbStore = DbStoresWeebi().articles;
     final recordSnapshot = await dbStore.find(_database.db);
     if (recordSnapshot.isEmpty) {
@@ -30,7 +30,7 @@ class UpdateLineArticleRpc extends UpdateArticleLineAbstractRpc {
     if (lineSnap == null) {
       throw 'error key is null in updateLine';
     }
-    final _line = LineOfArticles.fromMap(lineSnap);
+    final _line = ArticleLines.fromMap(lineSnap);
     return _line;
   }
 }

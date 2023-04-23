@@ -2,7 +2,7 @@
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show ArticleLines;
 import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:models_weebi/db.dart';
 import 'package:services_weebi/src/article_no_sembast/update_article.dart';
@@ -30,7 +30,7 @@ class UpdateArticleRpc<A extends ArticleAbstract>
     if (lineSnap == null) {
       throw 'error lineSnap is null in updateArticle';
     }
-    final _line = LineOfArticles.fromMap(lineSnap);
+    final _line = ArticleLines.fromMap(lineSnap);
     final _articleIndex = _line.articles.indexWhere((p) => p.id == data.id);
     _line.articles[_articleIndex] = data;
 
@@ -40,7 +40,7 @@ class UpdateArticleRpc<A extends ArticleAbstract>
     if (lineSnapUpdated == null) {
       throw 'error lineSnapUpdated is null in updateArticle';
     }
-    final LineOfArticles line = LineOfArticles.fromMap(lineSnapUpdated);
+    final ArticleLines line = ArticleLines.fromMap(lineSnapUpdated);
     final article = line.articles.firstWhere(
         (element) => element.lineId == data.lineId && element.id == data.id);
     //return data is Article ? article : article as ArticleBasket;
