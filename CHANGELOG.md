@@ -1,3 +1,7 @@
+## 1.0.2
+
+- ++ models
+
 ## 1.0.1
 
 - lowering collection 
