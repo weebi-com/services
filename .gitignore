@@ -1,2 +1,4 @@
 .packages
 .dart_tool
+.packages
+.gitignore
