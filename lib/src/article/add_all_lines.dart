@@ -13,8 +13,10 @@ class AddAllLineArticlesRpc extends AddAllArticlesLineAbstract {
   const AddAllLineArticlesRpc(this._database);
 
   @override
-  Future<void> request(List<ArticleLines> lines) async {
+  Future<int> request(List<ArticleLines> lines) async {
     final dbStore = intMapStoreFactory.store('articles');
-    dbStore.addAll(_database.db, lines.map((e) => e.toMap()).toList());
+    final generatedKeys = await dbStore.addAll(
+        _database.db, lines.map((e) => e.toMap()).toList());
+    return generatedKeys.length;
   }
 }

@@ -11,12 +11,13 @@ class AddAllTicketsRpc extends AddAllTicketsAbstractRpc {
   const AddAllTicketsRpc(this._db);
 
   @override
-  Future<void> request(Set<TicketWeebi> tickets) async {
+  Future<int> request(Set<TicketWeebi> tickets) async {
     final dbStore = intMapStoreFactory.store('tickets');
     List<Map<String, Object>> ticketsJonsSembastList = [];
     for (final ticket in tickets) {
       ticketsJonsSembastList.add(ticket.toMap());
     }
-    await dbStore.addAll(_db.db, ticketsJonsSembastList);
+    final generatedKeys = await dbStore.addAll(_db.db, ticketsJonsSembastList);
+    return generatedKeys.length;
   }
 }

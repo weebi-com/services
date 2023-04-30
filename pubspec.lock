@@ -179,10 +179,10 @@ packages:
   models_weebi:
     dependency: "direct main"
     description:
-      name: models_weebi
-      url: "https://onepub.dev/api/xnxpsdavuh/"
-    source: hosted
-    version: "1.0.11"
+      path: "../models_weebi"
+      relative: true
+    source: path
+    version: "1.0.12"
   node_preamble:
     dependency: transitive
     description:
