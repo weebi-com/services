@@ -1,23 +1,23 @@
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show LineOfArticles;
+import 'package:models_weebi/weebi_models.dart' show ArticleLine;
 import 'package:models_weebi/base.dart' show EndpointBase;
 
-abstract class DeleteAllArticleLinesAbstractRpc
-    implements EndpointBase<void, List<LineOfArticles>> {
-  const DeleteAllArticleLinesAbstractRpc();
+abstract class DeleteAllArticleLineAbstractRpc
+    implements EndpointBase<void, List<ArticleLine>> {
+  const DeleteAllArticleLineAbstractRpc();
 
   @override
-  Future<void> request(List<LineOfArticles> products) async {
+  Future<void> request(List<ArticleLine> products) async {
     return;
   }
 }
 
-class DeleteAllArticleLinesFakeRpc extends DeleteAllArticleLinesAbstractRpc
-    implements EndpointBase<void, List<LineOfArticles>> {
-  const DeleteAllArticleLinesFakeRpc();
+class DeleteAllArticleLineFakeRpc extends DeleteAllArticleLineAbstractRpc
+    implements EndpointBase<void, List<ArticleLine>> {
+  const DeleteAllArticleLineFakeRpc();
 
   @override
-  Future<void> request(List<LineOfArticles> products) async {
+  Future<void> request(List<ArticleLine> products) async {
     return;
   }
 }

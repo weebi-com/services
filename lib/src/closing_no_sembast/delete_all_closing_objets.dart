@@ -1,4 +1,3 @@
-import 'package:models_weebi/closings.dart';
 import 'package:models_weebi/base.dart';
 
 abstract class DeleteAllClosingObjectsAbstractRpc

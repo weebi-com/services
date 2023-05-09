@@ -1,6 +1,5 @@
 import 'package:models_weebi/closings.dart';
 import 'package:sembast/sembast.dart' as sembast;
-import 'package:models_weebi/base.dart';
 import 'package:services_weebi/src/closing_no_sembast/add_all_closing_stock_products.dart';
 
 class AddAllClosingsStockProductsRpc
