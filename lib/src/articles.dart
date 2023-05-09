@@ -20,18 +20,18 @@ import 'package:services_weebi/src/article_no_sembast/update_line.dart';
 
 abstract class ArticlesServiceAbstract {
   final GetArticlesLinesAbstractRpc getArticlesLinesRpc;
-  final AddAllArticlesLineAbstract addAllArticleLinesRpc;
+  final AddAllArticlesLineAbstract addAllArticleLineRpc;
   final UpdateArticleLineAbstractRpc updateArticleLineRpc;
   final DeleteForeverLineArticleAbstractRpc deleteForeverLineRpc;
   final UpdateArticleAbstractRpc updateArticleRpc;
   final CreateArticleLineAbstractRpc createLineArticleRpc;
   final CreateArticleAbstractRpc createArticleRpc;
   final DeleteForeverArticleAbstractRpc deleteForeverArticleRpc;
-  final DeleteAllArticleLinesAbstractRpc deleteAllLinesRpc;
+  final DeleteAllArticleLineAbstractRpc deleteAllLinesRpc;
 
   ArticlesServiceAbstract(
       this.getArticlesLinesRpc,
-      this.addAllArticleLinesRpc,
+      this.addAllArticleLineRpc,
       this.updateArticleLineRpc,
       this.deleteForeverLineRpc,
       this.updateArticleRpc,
@@ -47,7 +47,7 @@ class ArticlesServiceNoSembast implements ArticlesServiceAbstract {
   const ArticlesServiceNoSembast();
 
   @override
-  AddAllArticlesLineAbstract get addAllArticleLinesRpc =>
+  AddAllArticlesLineAbstract get addAllArticleLineRpc =>
       AddAllLineArticlesFakeRpc();
 
   @override
@@ -58,8 +58,8 @@ class ArticlesServiceNoSembast implements ArticlesServiceAbstract {
       CreateArticleLineFakeRpc();
 
   @override
-  DeleteAllArticleLinesAbstractRpc get deleteAllLinesRpc =>
-      DeleteAllArticleLinesFakeRpc();
+  DeleteAllArticleLineAbstractRpc get deleteAllLinesRpc =>
+      DeleteAllArticleLineFakeRpc();
 
   @override
   DeleteForeverArticleAbstractRpc get deleteForeverArticleRpc =>
@@ -91,7 +91,7 @@ class ArticlesService extends ArticlesServiceAbstract {
     CreateArticleLineRpc createLineArticleRpc,
     CreateArticleRpc createArticleRpc,
     DeleteForeverArticleRpc deleteForeverArticleRpc,
-    DeleteAllArticleLinesRpc deleteAllLinesRpc,
+    DeleteAllArticleLineRpc deleteAllLinesRpc,
   ) : super(
           getLinesRpc,
           addAllLinesRpc,

@@ -1,25 +1,26 @@
 // Package imports:
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show ArticleLines;
-import 'package:models_weebi/base.dart' show EndpointBase;
+import 'package:models_weebi/weebi_models.dart' show ArticleLine;
+import 'package:models_weebi/base.dart' show ArticleAbstract, EndpointBase;
 
-abstract class UpdateArticleLineAbstractRpc
-    implements EndpointBase<ArticleLines, ArticleLines> {
+abstract class UpdateArticleLineAbstractRpc<A extends ArticleAbstract>
+    implements EndpointBase<ArticleLine<A>, ArticleLine<A>> {
   const UpdateArticleLineAbstractRpc();
 
   @override
-  Future<ArticleLines> request(ArticleLines data) async {
+  Future<ArticleLine<A>> request(ArticleLine<A> data) async {
     return data;
   }
 }
 
-class UpdateLineArticleFakeRpc extends UpdateArticleLineAbstractRpc
-    implements EndpointBase<ArticleLines, ArticleLines> {
+class UpdateLineArticleFakeRpc<A extends ArticleAbstract>
+    extends UpdateArticleLineAbstractRpc<A>
+    implements EndpointBase<ArticleLine<A>, ArticleLine<A>> {
   const UpdateLineArticleFakeRpc();
 
   @override
-  Future<ArticleLines> request(ArticleLines data) async {
+  Future<ArticleLine<A>> request(ArticleLine<A> data) async {
     return data;
   }
 }

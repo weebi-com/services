@@ -1,5 +1,5 @@
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show ArticleLines;
+import 'package:models_weebi/weebi_models.dart' show ArticleLine;
 
 import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:models_weebi/db.dart';
@@ -29,14 +29,14 @@ class DeleteForeverArticleRpc<A extends ArticleAbstract>
     if (lineSnap == null) {
       throw 'error lineSnap is null in deleteforeverArticle';
     }
-    final _line = ArticleLines.fromMap(lineSnap);
+    final _line = ArticleLine.fromMap(lineSnap);
 
     final _articleIndex = _line.articles.indexWhere((p) => p.id == data.id);
     _line.articles.removeAt(_articleIndex);
     // final lineSnapUpdated =
     //     await dbStore.record(key).update(_database.db, _line?.toMap());
-    // final ArticleLines line =
-    //     ArticleLines.fromMap(lineSnapUpdated);
+    // final ArticleLine line =
+    //     ArticleLine.fromMap(lineSnapUpdated);
     return;
   }
 }
