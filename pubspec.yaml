@@ -6,7 +6,7 @@ description: A starting point for Dart libraries or applications.
 environment: 
   sdk: '>=2.7.0 <3.0.0'
 dependencies: 
-  collection: ^1.14.12
+  collection: 1.14.12
   models_weebi:
     git:
       url: https://github.com/weebi-com/models
