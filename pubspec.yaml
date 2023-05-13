@@ -8,11 +8,11 @@ environment:
 dependencies: 
   collection: ^1.15.0
   models_weebi:
-    path: ../models_weebi
-  #  hosted:
-  #    url: https://onepub.dev/api/xnxpsdavuh/
-  #    name: models_weebi
-  #  version: ^1.0.11
+    #path: ../models_weebi
+    hosted:
+      url: https://onepub.dev/api/xnxpsdavuh/
+      name: models_weebi
+    version: ^1.0.13
   sembast: ^3.3.1
   
 dev_dependencies: 
