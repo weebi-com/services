@@ -1,21 +1,16 @@
 name: services_weebi
 version: 1.0.4
 homepage: http://weebi.com
-publish_to: none #https://onepub.dev/api/xnxpsdavuh/
-description: A starting point for Dart libraries or applications.
+#publish_to: none #https://onepub.dev/api/xnxpsdavuh/
+description: services
 environment: 
   sdk: '>=2.7.0 <3.0.0'
 dependencies: 
   collection: ^1.14.12
-  models_weebi:
-    git:
-      url: https://github.com/weebi-com/models
-    #path: ../models_weebi
-  #  hosted:
-  #    url: https://onepub.dev/api/xnxpsdavuh/
-  #    name: models_weebi
-  #  version: ^1.0.11
   sembast: ^3.3.1
+
+  models_weebi: ^1.0.13
+    #path: ../models_weebi
   
 dev_dependencies: 
   test: ^1.16.0

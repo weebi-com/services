@@ -1,3 +1,7 @@
+## 1.0.4
+
+- version fix for CI
+
 ## 1.0.2
 
 - ++ models
