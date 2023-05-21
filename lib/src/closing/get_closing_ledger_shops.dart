@@ -1,6 +1,7 @@
 import 'package:sembast/sembast.dart';
 import 'package:models_weebi/closings.dart';
 import 'package:services_weebi/src/closing_no_sembast/get_closing_ledger_shops.dart';
+import 'package:services_weebi/src/closing_database/db_store_refs.dart';
 
 class GetClosingLedgerShopsRpc extends GetClosingLedgerShopsAbstractRpc {
   final Database _database;

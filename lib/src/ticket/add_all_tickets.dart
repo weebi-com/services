@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:models_weebi/db.dart';
+import 'package:services_weebi/db_wrappers.dart';
 import 'package:sembast/sembast.dart';
 
 // Project imports:
@@ -13,7 +13,7 @@ class AddAllTicketsRpc extends AddAllTicketsAbstractRpc {
   @override
   Future<int> request(Set<TicketWeebi> tickets) async {
     final dbStore = intMapStoreFactory.store('tickets');
-    List<Map<String, Object>> ticketsJonsSembastList = [];
+    List<Map<String, dynamic>> ticketsJonsSembastList = [];
     for (final ticket in tickets) {
       ticketsJonsSembastList.add(ticket.toMap());
     }

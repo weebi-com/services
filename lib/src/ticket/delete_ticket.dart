@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:models_weebi/db.dart';
+import 'package:services_weebi/db_wrappers.dart';
 import 'package:sembast/sembast.dart';
 
 // Project imports:

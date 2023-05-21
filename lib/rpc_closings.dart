@@ -3,7 +3,6 @@ library closing_services;
 export 'src/closings.dart';
 export 'src/closing/create_closing_range.dart';
 export 'src/closing/get_closing_ledgers.dart';
-export 'src/closing/create_closing_range.dart';
 export 'src/closing/add_all_closing_ledgers.dart';
 export 'src/closing/delete_closing_range.dart';
 export 'src/closing/get_closing_herders.dart';

@@ -1,6 +1,7 @@
 import 'package:models_weebi/closings.dart';
 import 'package:sembast/sembast.dart' as sembast;
 import 'package:services_weebi/src/closing_no_sembast/add_all_closing_herders.dart';
+import 'package:services_weebi/src/closing_database/db_store_refs.dart';
 
 class AddAllClosingsHerdersRpc extends AddAllClosingsHerdersAbstractRpc {
   final sembast.Database _database;

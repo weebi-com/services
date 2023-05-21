@@ -1,44 +1,44 @@
 // Project imports:
-import 'package:services_weebi/src/article/get_lines.dart';
+import 'package:services_weebi/src/article/get_article_calibres.dart';
 import 'package:services_weebi/src/article/create_article.dart';
-import 'package:services_weebi/src/article/create_line.dart';
+import 'package:services_weebi/src/article/create_calibre.dart';
 import 'package:services_weebi/src/article/delete_forever_article.dart';
-import 'package:services_weebi/src/article/delete_forever_line.dart';
-import 'package:services_weebi/src/article/add_all_lines.dart';
+import 'package:services_weebi/src/article/delete_forever_calibre_and_articles.dart';
+import 'package:services_weebi/src/article/add_all_calibres_and_articles.dart';
 import 'package:services_weebi/src/article/update_article.dart';
-import 'package:services_weebi/src/article/update_line.dart';
-import 'package:services_weebi/src/article/delete_all_article_lines.dart';
-import 'package:services_weebi/src/article_no_sembast/add_all_lines.dart';
-import 'package:services_weebi/src/article_no_sembast/create_article.dart';
-import 'package:services_weebi/src/article_no_sembast/create_line.dart';
-import 'package:services_weebi/src/article_no_sembast/delete_all_article_lines.dart';
+import 'package:services_weebi/src/article/update_calibre.dart';
+import 'package:services_weebi/src/article/delete_all_articles_and_calibres.dart';
+import 'package:services_weebi/src/article_no_sembast/add_all_calibres.dart';
+import 'package:services_weebi/src/article_no_sembast/add_article.dart';
+import 'package:services_weebi/src/article_no_sembast/add_article_calibre.dart';
+import 'package:services_weebi/src/article_no_sembast/delete_all_articles_and_calibres.dart';
 import 'package:services_weebi/src/article_no_sembast/delete_forever_article.dart';
-import 'package:services_weebi/src/article_no_sembast/delete_forever_line.dart';
-import 'package:services_weebi/src/article_no_sembast/get_lines.dart';
+import 'package:services_weebi/src/article_no_sembast/delete_forever_calibre_and_its_articles.dart';
+import 'package:services_weebi/src/article_no_sembast/get_calibres.dart';
 import 'package:services_weebi/src/article_no_sembast/update_article.dart';
-import 'package:services_weebi/src/article_no_sembast/update_line.dart';
+import 'package:services_weebi/src/article_no_sembast/update_calibre.dart';
 
 abstract class ArticlesServiceAbstract {
-  final GetArticlesLinesAbstractRpc getArticlesLinesRpc;
-  final AddAllArticlesLineAbstract addAllArticleLineRpc;
-  final UpdateArticleLineAbstractRpc updateArticleLineRpc;
+  final GetArticleCalibersAbstractRpc getArticlesCalibresRpc;
+  final AddAllArticleCalibresAbstract addAllArticleCalibreRpc;
+  final UpdateArticleCalibreAbstractRpc updateArticleCalibreRpc;
   final DeleteForeverLineArticleAbstractRpc deleteForeverLineRpc;
   final UpdateArticleAbstractRpc updateArticleRpc;
-  final CreateArticleLineAbstractRpc createLineArticleRpc;
+  final CreateArticleCalibreAbstractRpc createLineArticleRpc;
   final CreateArticleAbstractRpc createArticleRpc;
   final DeleteForeverArticleAbstractRpc deleteForeverArticleRpc;
-  final DeleteAllArticleLineAbstractRpc deleteAllLinesRpc;
+  final DeleteAllArticleCalibreAbstractRpc deleteAllCalibresRpc;
 
   ArticlesServiceAbstract(
-      this.getArticlesLinesRpc,
-      this.addAllArticleLineRpc,
-      this.updateArticleLineRpc,
+      this.getArticlesCalibresRpc,
+      this.addAllArticleCalibreRpc,
+      this.updateArticleCalibreRpc,
       this.deleteForeverLineRpc,
       this.updateArticleRpc,
       this.createLineArticleRpc,
       this.createArticleRpc,
       this.deleteForeverArticleRpc,
-      this.deleteAllLinesRpc);
+      this.deleteAllCalibresRpc);
 }
 
 class ArticlesServiceNoSembast implements ArticlesServiceAbstract {
@@ -47,19 +47,19 @@ class ArticlesServiceNoSembast implements ArticlesServiceAbstract {
   const ArticlesServiceNoSembast();
 
   @override
-  AddAllArticlesLineAbstract get addAllArticleLineRpc =>
+  AddAllArticleCalibresAbstract get addAllArticleCalibreRpc =>
       AddAllLineArticlesFakeRpc();
 
   @override
   CreateArticleAbstractRpc get createArticleRpc => CreateArticleFakeRpc();
 
   @override
-  CreateArticleLineAbstractRpc get createLineArticleRpc =>
-      CreateArticleLineFakeRpc();
+  CreateArticleCalibreAbstractRpc get createLineArticleRpc =>
+      CreateArticleCalibreFakeRpc();
 
   @override
-  DeleteAllArticleLineAbstractRpc get deleteAllLinesRpc =>
-      DeleteAllArticleLineFakeRpc();
+  DeleteAllArticleCalibreAbstractRpc get deleteAllCalibresRpc =>
+      DeleteAllArticleCalibreFakeRpc();
 
   @override
   DeleteForeverArticleAbstractRpc get deleteForeverArticleRpc =>
@@ -70,37 +70,38 @@ class ArticlesServiceNoSembast implements ArticlesServiceAbstract {
       DeleteForeverLineArticleFakeRpc();
 
   @override
-  GetArticlesLinesAbstractRpc get getArticlesLinesRpc => GetLinesFakeRpc();
+  GetArticleCalibersAbstractRpc get getArticlesCalibresRpc =>
+      GetCalibresFakeRpc();
 
   @override
   UpdateArticleAbstractRpc get updateArticleRpc => UpdateArticleFakeRpc();
 
   @override
-  UpdateArticleLineAbstractRpc get updateArticleLineRpc =>
+  UpdateArticleCalibreAbstractRpc get updateArticleCalibreRpc =>
       UpdateLineArticleFakeRpc();
 }
 
 class ArticlesService extends ArticlesServiceAbstract {
   static final count = 9;
   ArticlesService(
-    GetLinesRpc getLinesRpc,
-    AddAllLineArticlesRpc addAllLinesRpc,
+    GetArticleCalibersRpc getCalibresRpc,
+    AddAllArticleCalibresRpc addAllCalibresRpc,
     UpdateLineArticleRpc updateLineRpc,
-    DeleteForeverLineArticleRpc deleteForeverLineRpc,
+    DeleteForeverCalibreAndItsArticlesRpc deleteForeverLineRpc,
     UpdateArticleRpc updateArticleRpc,
-    CreateArticleLineRpc createLineArticleRpc,
+    CreateArticleCalibreRpc createLineArticleRpc,
     CreateArticleRpc createArticleRpc,
     DeleteForeverArticleRpc deleteForeverArticleRpc,
-    DeleteAllArticleLineRpc deleteAllLinesRpc,
+    DeleteAllArticleCalibreRpc deleteAllCalibresRpc,
   ) : super(
-          getLinesRpc,
-          addAllLinesRpc,
+          getCalibresRpc,
+          addAllCalibresRpc,
           updateLineRpc,
           deleteForeverLineRpc,
           updateArticleRpc,
           createLineArticleRpc,
           createArticleRpc,
           deleteForeverArticleRpc,
-          deleteAllLinesRpc,
+          deleteAllCalibresRpc,
         );
 }

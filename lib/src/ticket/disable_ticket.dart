@@ -1,6 +1,6 @@
 // Package imports:
 import 'package:sembast/sembast.dart';
-import 'package:models_weebi/db.dart';
+import 'package:services_weebi/db_wrappers.dart';
 
 // Project imports:
 import 'package:models_weebi/weebi_models.dart' show TicketWeebi;

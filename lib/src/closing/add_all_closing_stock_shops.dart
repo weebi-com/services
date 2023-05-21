@@ -1,6 +1,7 @@
 import 'package:sembast/sembast.dart' as sembast;
 import 'package:models_weebi/closings.dart';
 import 'package:services_weebi/src/closing_no_sembast/add_all_closing_stock_shops.dart';
+import 'package:services_weebi/src/closing_database/db_store_refs.dart';
 
 class AddAllClosingsStockShopsRpc extends AddAllClosingsStockShopsAbstractRpc {
   final sembast.Database _database;

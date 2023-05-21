@@ -1,6 +1,7 @@
 import 'package:models_weebi/closings.dart';
 import 'package:sembast/sembast.dart';
 import 'package:services_weebi/src/closing_no_sembast/create_closing_range.dart';
+import 'package:services_weebi/src/closing_database/db_store_refs.dart';
 
 class CreateClosingRangeRpc extends CreateClosingRangeAbstractRpc {
   final Database _database;

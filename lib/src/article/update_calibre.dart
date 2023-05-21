@@ -3,20 +3,20 @@ import 'package:models_weebi/base.dart';
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart'
-    show ArticleBasket, ArticleLine, ArticleRetail;
-import 'package:models_weebi/db.dart';
-import 'package:services_weebi/src/article_no_sembast/update_line.dart';
+import 'package:models_weebi/weebi_models.dart' show ArticleCalibre;
+import 'package:services_weebi/db_wrappers.dart';
+import 'package:services_weebi/src/article_no_sembast/update_calibre.dart';
 import 'package:services_weebi/src/db_store_refs.dart';
 
 class UpdateLineArticleRpc<A extends ArticleAbstract>
-    extends UpdateArticleLineAbstractRpc<A> {
+    extends UpdateArticleCalibreAbstractRpc<A>
+    implements EndpointBase<ArticleCalibre<A>, ArticleCalibre<A>> {
   final DbArticles _database;
 
   const UpdateLineArticleRpc(this._database);
 
   @override
-  Future<ArticleLine<A>> request(ArticleLine<A> data) async {
+  Future<ArticleCalibre<A>> request(ArticleCalibre<A> data) async {
     final dbStore = DbStoresWeebi().articles;
     final recordSnapshot = await dbStore.find(_database.db);
     if (recordSnapshot.isEmpty) {
@@ -32,10 +32,11 @@ class UpdateLineArticleRpc<A extends ArticleAbstract>
     if (lineSnap == null) {
       throw 'error key is null in updateLine';
     }
-    // final _line = ArticleLine.fromMap(lineSnap); // do not use this since we need to know the exact type
-    final temp = data.isBasket
-        ? ArticleLine.fromMapArticleBasket(lineSnap)
-        : ArticleLine.fromMapArticleRetail(lineSnap);
+
+    final ArticleCalibre<A> temp = ArticleCalibre.fromMap(lineSnap);
+    // final ArticleCalibre<A> temp = (data.isBasket ?? false)
+    //     ? ArticleCalibre.fromMapArticleBasket(lineSnap)
+    //     : ArticleCalibre.fromMapArticleRetail(lineSnap);
     return temp;
   }
 }

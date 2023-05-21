@@ -2,9 +2,9 @@
 import 'package:sembast/sembast.dart';
 
 // Project imports:
-import 'package:models_weebi/weebi_models.dart' show ArticleLine;
+import 'package:models_weebi/weebi_models.dart' show ArticleCalibre;
 import 'package:models_weebi/base.dart' show ArticleAbstract;
-import 'package:models_weebi/db.dart';
+import 'package:services_weebi/db_wrappers.dart';
 import 'package:services_weebi/src/article_no_sembast/update_article.dart';
 import 'package:services_weebi/src/db_store_refs.dart';
 
@@ -22,7 +22,7 @@ class UpdateArticleRpc<A extends ArticleAbstract>
       throw 'no articles';
     }
     final key = await dbStore.findKey(_database.db,
-        finder: Finder(filter: Filter.equals('id', data.lineId)));
+        finder: Finder(filter: Filter.equals('id', data.calibreId)));
     if (key == null) {
       throw 'error key is null in updateArticle';
     }
@@ -30,7 +30,7 @@ class UpdateArticleRpc<A extends ArticleAbstract>
     if (lineSnap == null) {
       throw 'error lineSnap is null in updateArticle';
     }
-    final _line = ArticleLine.fromMap(lineSnap);
+    final _line = ArticleCalibre.fromMap(lineSnap);
     final _articleIndex = _line.articles.indexWhere((p) => p.id == data.id);
     _line.articles[_articleIndex] = data;
 
@@ -40,10 +40,10 @@ class UpdateArticleRpc<A extends ArticleAbstract>
     if (lineSnapUpdated == null) {
       throw 'error lineSnapUpdated is null in updateArticle';
     }
-    final ArticleLine line = ArticleLine.fromMap(lineSnapUpdated);
-    final article = line.articles.firstWhere(
-        (element) => element.lineId == data.lineId && element.id == data.id);
+    final ArticleCalibre line = ArticleCalibre.fromMap(lineSnapUpdated);
+    final article = line.articles.firstWhere((element) =>
+        element.calibreId == data.calibreId && element.id == data.id);
     //return data is Article ? article : article as ArticleBasket;
-    return article;
+    return article as A;
   }
 }

@@ -1,6 +1,6 @@
-import 'package:models_weebi/closings.dart';
 import 'package:sembast/sembast.dart';
 import 'package:services_weebi/src/closing_no_sembast/delete_all_closing_objets.dart';
+import 'package:services_weebi/src/closing_database/db_store_refs.dart';
 
 class DeleteAllClosingObjects extends DeleteAllClosingObjectsAbstractRpc {
   final Database _database;
