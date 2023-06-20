@@ -23,7 +23,7 @@ abstract class CreateArticleCalibreAbstractRpc<A extends ArticleAbstract>
 class CreateArticleCalibreFakeRpc<A extends ArticleAbstract>
     extends CreateArticleCalibreAbstractRpc<A>
     implements EndpointBase<ArticleCalibre<A>, ArticleCalibre<A>> {
-  CreateArticleCalibreFakeRpc();
+  const CreateArticleCalibreFakeRpc();
 
   @override
   Future<ArticleCalibre<A>> request(ArticleCalibre<A> data) async {

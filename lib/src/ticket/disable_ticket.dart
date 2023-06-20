@@ -27,7 +27,7 @@ class DisableTicketRpc extends DisableTicketAbstractRpc {
 
     // print('about to update rpc');
     //final count =
-    await _dbStore.update(_db.db, disabledTicket.toMap(),
+    final dd = await _dbStore.update(_db.db, disabledTicket.toMap(),
         finder: Finder(
             filter: Filter.and([
           Filter.equals('id', disabledTicket.id) &
@@ -38,6 +38,8 @@ class DisableTicketRpc extends DisableTicketAbstractRpc {
         ])));
     // print('updated count $count');
     // print('updated');
+
+    assert(dd == 1);
     final snap = await _dbStore.findFirst(_db.db,
         finder: Finder(
             filter: Filter.and([

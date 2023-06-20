@@ -8,7 +8,10 @@ abstract class RestoreTicketAbstractRpc
 
   @override
   Future<TicketWeebi> request(TicketWeebi data) async {
-    return data;
+    return data.copyWith(
+      status: true,
+      statusUpdateDate: DateTime.now(),
+    );
   }
 }
 
@@ -17,6 +20,9 @@ class RestoreTicketFakeRpc extends RestoreTicketAbstractRpc {
 
   @override
   Future<TicketWeebi> request(TicketWeebi data) async {
-    return data;
+    return data.copyWith(
+      status: true,
+      statusUpdateDate: DateTime.now(),
+    );
   }
 }

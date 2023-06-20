@@ -197,17 +197,18 @@ packages:
     dependency: transitive
     description:
       name: models_base
-      sha256: "1fd5c0b052081c95417e212c4d3cd12d017b2fdd007035317ebf2accb037781a"
+      sha256: ecee55cd1c52afb6ba75f83fb372ddc7ec00b296d30f04e34de9915e17a8d28c
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.3"
+    version: "1.4.4"
   models_weebi:
     dependency: "direct main"
     description:
-      path: "../models"
-      relative: true
-    source: path
-    version: "1.0.14"
+      name: models_weebi
+      sha256: "7f4c7bc6c487058d6a79d6f050c885452e102b13e49a127f7d3784a5e7d960c4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.15"
   node_preamble:
     dependency: transitive
     description:

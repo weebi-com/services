@@ -8,12 +8,12 @@ import 'package:services_weebi/db_wrappers.dart';
 import 'package:services_weebi/src/article_no_sembast/update_calibre.dart';
 import 'package:services_weebi/src/db_store_refs.dart';
 
-class UpdateLineArticleRpc<A extends ArticleAbstract>
+class UpdateCalibreArticleRpc<A extends ArticleAbstract>
     extends UpdateArticleCalibreAbstractRpc<A>
     implements EndpointBase<ArticleCalibre<A>, ArticleCalibre<A>> {
   final DbArticles _database;
 
-  const UpdateLineArticleRpc(this._database);
+  const UpdateCalibreArticleRpc(this._database);
 
   @override
   Future<ArticleCalibre<A>> request(ArticleCalibre<A> data) async {

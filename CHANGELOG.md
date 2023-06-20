@@ -1,6 +1,13 @@
+## 1.0.6 
+
+- remove redundancy on count in services
+- added dedicated unit tests for articles and tickets
+- update semantics for article calibre instead of line
+- ++ models_weebi -> 1.0.15
+
 ## 1.0.5
 
-- ++
+- ++ models_weebi
 
 ## 1.0.4
 

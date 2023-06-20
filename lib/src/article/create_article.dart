@@ -6,7 +6,7 @@ import 'package:sembast/sembast.dart';
 import 'package:models_weebi/weebi_models.dart' show ArticleCalibre;
 import 'package:models_weebi/base.dart' show ArticleAbstract;
 import 'package:services_weebi/db_wrappers.dart';
-import 'package:services_weebi/src/article_no_sembast/add_article.dart';
+import 'package:services_weebi/src/article_no_sembast/create_article.dart';
 
 class CreateArticleRpc<A extends ArticleAbstract>
     extends CreateArticleAbstractRpc<A> {

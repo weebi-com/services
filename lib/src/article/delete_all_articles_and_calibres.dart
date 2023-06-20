@@ -6,10 +6,10 @@ import 'package:models_weebi/weebi_models.dart' show ArticleCalibre;
 import 'package:services_weebi/db_wrappers.dart';
 import 'package:services_weebi/src/article_no_sembast/delete_all_articles_and_calibres.dart';
 
-class DeleteAllArticleCalibreRpc extends DeleteAllArticleCalibreAbstractRpc {
+class DeleteAllArticleCalibresRpc extends DeleteAllArticleCalibreAbstractRpc {
   final DbArticles _database;
 
-  DeleteAllArticleCalibreRpc(this._database);
+  DeleteAllArticleCalibresRpc(this._database);
 
   @override
   Future<void> request(List<ArticleCalibre> products) async {

@@ -9,7 +9,10 @@ abstract class DisableTicketAbstractRpc
   const DisableTicketAbstractRpc();
   @override
   Future<TicketWeebi> request(TicketWeebi data) async {
-    return data;
+    return data.copyWith(
+      status: false,
+      statusUpdateDate: DateTime.now(),
+    );
   }
 }
 
@@ -17,6 +20,9 @@ class DisableTicketFakeRpc extends DisableTicketAbstractRpc {
   const DisableTicketFakeRpc();
   @override
   Future<TicketWeebi> request(TicketWeebi data) async {
-    return data;
+    return data.copyWith(
+      status: false,
+      statusUpdateDate: DateTime.now(),
+    );
   }
 }

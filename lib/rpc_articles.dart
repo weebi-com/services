@@ -9,3 +9,7 @@ export 'src/article/delete_forever_article.dart';
 export 'src/article/get_article_calibres.dart';
 export 'src/article/update_article.dart';
 export 'src/article/update_calibre.dart';
+
+export 'src/article/create_photo.dart';
+export 'src/article/delete_photo.dart';
+export 'src/article/get_photos.dart';

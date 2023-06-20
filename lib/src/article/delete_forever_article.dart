@@ -23,7 +23,7 @@ class DeleteForeverArticleRpc<A extends ArticleAbstract>
     final key = await dbStore.findKey(_database.db,
         finder: Finder(filter: Filter.equals('id', data.calibreId)));
     if (key == null) {
-      throw 'error key is null in deleteforeverArticle';
+      throw 'error no match for calibreId ${data.calibreId} in deleteforeverArticle';
     }
     final lineSnap = await dbStore.record(key).get(_database.db);
     if (lineSnap == null) {
@@ -33,10 +33,7 @@ class DeleteForeverArticleRpc<A extends ArticleAbstract>
 
     final _articleIndex = _line.articles.indexWhere((p) => p.id == data.id);
     _line.articles.removeAt(_articleIndex);
-    // final lineSnapUpdated =
-    //     await dbStore.record(key).update(_database.db, _line?.toMap());
-    // final ArticleCalibre line =
-    //     ArticleCalibre.fromMap(lineSnapUpdated);
+
     return;
   }
 }

@@ -37,9 +37,6 @@ import 'package:services_weebi/src/closing_no_sembast/get_closing_stock_products
 import 'package:services_weebi/src/closing_no_sembast/get_closing_stock_shops.dart';
 import 'package:services_weebi/src/closing_no_sembast/get_closing_stocks.dart';
 
-// I am not making this abstract 'cause I need to instantiate a service without any db
-// and it is too much work work to duplicate all these
-
 abstract class ClosingsServiceAbstract {
   final CreateClosingRangeAbstractRpc createClosingRangeRpc;
   final DeleteClosingRangeAbstractRpc deleteClosingRangeRpc;
@@ -92,86 +89,6 @@ abstract class ClosingsServiceAbstract {
   );
 }
 
-class ClosingsServiceFake implements ClosingsServiceAbstract {
-  const ClosingsServiceFake();
-
-  @override
-  AddAllClosingLedgerShopsAbstractRpc get addAllClosingLedgerShopsRpc =>
-      AddAllClosingLedgerShopsFakeRpc();
-
-  @override
-  AddAllClosingLedgersAbstractRpc get addAllClosingLedgersRpc =>
-      AddAllClosingLedgersFakeRpc();
-
-  @override
-  AddAllClosingRangesAbstractRpc get addAllClosingRangesRpc =>
-      AddAllClosingRangesFakeRpc();
-
-  @override
-  AddAllClosingsHerderStocksAbstractRpc get addAllClosingsHerderStocksRpc =>
-      AddAllClosingsHerderStocksFakeRpc();
-
-  @override
-  AddAllClosingsHerdersAbstractRpc get addAllClosingsHerdersRpc =>
-      AddAllClosingsHerdersFakeRpc();
-
-  @override
-  AddAllClosingsStockProductsAbstractRpc get addAllClosingsStockProductsRpc =>
-      AddAllClosingsStockProductsFakeRpc();
-
-  @override
-  AddAllClosingsStockShopsAbstractRpc get addAllClosingsStockShopsRpc =>
-      AddAllClosingsStockShopsFakeRpc();
-
-  @override
-  AddAllClosingsStocksFullAbstractRpc get addAllClosingsStocksRpc =>
-      AddAllClosingsStocksFullFakeRpc();
-
-  @override
-  CreateClosingRangeAbstractRpc get createClosingRangeRpc =>
-      CreateClosingRangeFakeRpc();
-
-  @override
-  DeleteAllClosingObjectsAbstractRpc get deleteAllClosingObjects =>
-      DeleteAllClosingObjectsFakeRpc();
-
-  @override
-  DeleteClosingRangeAbstractRpc get deleteClosingRangeRpc =>
-      DeleteClosingRangeFakeRpc();
-
-  @override
-  GetClosingLedgerShopsAbstractRpc get getClosingLedgerShopsRpc =>
-      GetClosingLedgerShopsFakeRpc();
-
-  @override
-  GetClosingLedgersAbstractRpc get getClosingLedgersRpc =>
-      GetClosingLedgersFakeRpc();
-
-  @override
-  GetClosingRangesAbstractRpc get getClosingRangesRpc =>
-      GetClosingRangesFakeRpc();
-
-  @override
-  GetClosingsHerderStocksAbstractRpc get getClosingsHerderStocksRpc =>
-      GetClosingsHerderStocksFakeRpc();
-
-  @override
-  GetClosingsHerdersAbstractRpc get getClosingsHerdersRpc =>
-      GetClosingsHerdersFakeRpc();
-
-  @override
-  GetClosingsStockProductsAbstractRpc get getClosingsStockProductsRpc =>
-      GetClosingsStockProductsFakeRpc();
-
-  @override
-  GetClosingsStockShopsAbstractRpc get getClosingsStockShopsRpc =>
-      GetClosingsStockShopsFakeRpc();
-
-  @override
-  GetClosingsStocksAbstractRpc get getClosingsStocksRpc =>
-      GetClosingsStocksFakeRpc();
-}
-
 class ClosingsService extends ClosingsServiceAbstract {
   ClosingsService(
       CreateClosingRangeRpc createClosingRangeRpc,
@@ -215,4 +132,65 @@ class ClosingsService extends ClosingsServiceAbstract {
           addAllClosingsHerderStocksRpc,
           deleteAllClosingObjects,
         );
+}
+
+class ClosingsServiceFake implements ClosingsServiceAbstract {
+  const ClosingsServiceFake();
+
+  @override
+  get addAllClosingLedgerShopsRpc => AddAllClosingLedgerShopsFakeRpc();
+
+  @override
+  get addAllClosingLedgersRpc => AddAllClosingLedgersFakeRpc();
+
+  @override
+  get addAllClosingRangesRpc => AddAllClosingRangesFakeRpc();
+
+  @override
+  get addAllClosingsHerderStocksRpc => AddAllClosingsHerderStocksFakeRpc();
+
+  @override
+  get addAllClosingsHerdersRpc => AddAllClosingsHerdersFakeRpc();
+
+  @override
+  get addAllClosingsStockProductsRpc => AddAllClosingsStockProductsFakeRpc();
+
+  @override
+  get addAllClosingsStockShopsRpc => AddAllClosingsStockShopsFakeRpc();
+
+  @override
+  get addAllClosingsStocksRpc => AddAllClosingsStocksFullFakeRpc();
+
+  @override
+  get createClosingRangeRpc => CreateClosingRangeFakeRpc();
+
+  @override
+  get deleteAllClosingObjects => DeleteAllClosingObjectsFakeRpc();
+
+  @override
+  get deleteClosingRangeRpc => DeleteClosingRangeFakeRpc();
+
+  @override
+  get getClosingLedgerShopsRpc => GetClosingLedgerShopsFakeRpc();
+
+  @override
+  get getClosingLedgersRpc => GetClosingLedgersFakeRpc();
+
+  @override
+  get getClosingRangesRpc => GetClosingRangesFakeRpc();
+
+  @override
+  get getClosingsHerderStocksRpc => GetClosingsHerderStocksFakeRpc();
+
+  @override
+  get getClosingsHerdersRpc => GetClosingsHerdersFakeRpc();
+
+  @override
+  get getClosingsStockProductsRpc => GetClosingsStockProductsFakeRpc();
+
+  @override
+  get getClosingsStockShopsRpc => GetClosingsStockShopsFakeRpc();
+
+  @override
+  get getClosingsStocksRpc => GetClosingsStocksFakeRpc();
 }
