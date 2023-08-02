@@ -1,5 +1,5 @@
 name: services_weebi
-version: 1.0.7
+version: 1.0.8
 homepage: http://weebi.com
 #publish_to: none #https://onepub.dev/api/xnxpsdavuh/
 description: services
@@ -9,7 +9,7 @@ dependencies:
   collection: ^1.14.12
   sembast: ^3.1.0+2 #^3.3.1
 
-  models_weebi: ^1.0.17
+  models_weebi: ^1.0.18
   
 dev_dependencies: 
   test: ^1.16.0
