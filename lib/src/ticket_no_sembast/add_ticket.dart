@@ -17,6 +17,7 @@ class AddTicketFakeRpc extends AddTicketAbstractRpc {
   const AddTicketFakeRpc();
   @override
   Future<TicketWeebi> request(TicketWeebi data) async {
-    return data;
+    final dataMap = data.toMap();
+    return TicketWeebi.fromMap(dataMap);
   }
 }
