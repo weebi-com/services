@@ -1,3 +1,7 @@
+## 1.0.8+1
+
+- bump models version
+
 ## 1.0.8
 
 - bump models version

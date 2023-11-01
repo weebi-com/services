@@ -5,7 +5,7 @@ import 'package:services_weebi/src/tickets.dart';
 import 'package:test/test.dart';
 
 void main() async {
-  final now = DateTime.now();
+  // final now = DateTime.now();
 
   final db = await databaseFactoryMemory.openDatabase('test.db');
   final service =
