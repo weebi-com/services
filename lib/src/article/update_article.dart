@@ -24,7 +24,7 @@ class UpdateArticleRpc<A extends ArticleAbstract>
     final key = await dbStore.findKey(_database.db,
         finder: Finder(filter: Filter.equals('id', data.calibreId)));
     if (key == null) {
-      throw 'error key is null in updateArticle';
+      throw 'error Key? is null in updateArticle';
     }
     final lineSnap = await dbStore.record(key).get(_database.db);
     if (lineSnap == null) {

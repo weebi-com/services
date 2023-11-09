@@ -25,12 +25,12 @@ class UpdateCalibreArticleRpc<A extends ArticleAbstract>
     final key = await dbStore.findKey(_database.db,
         finder: Finder(filter: Filter.equals('id', data.id)));
     if (key == null) {
-      throw 'error key is null in updateLine';
+      throw 'error Key? is null in updateLine';
     }
     final lineSnap =
         await dbStore.record(key).update(_database.db, data.toMap());
     if (lineSnap == null) {
-      throw 'error key is null in updateLine';
+      throw 'error Key? is null in updateLine';
     }
 
     final ArticleCalibre<A> temp = ArticleCalibre.fromMap(lineSnap);

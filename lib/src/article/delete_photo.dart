@@ -16,7 +16,7 @@ class DeleteForeverPhotoRpc extends DeleteForeverArticlePhotoAbstractRpc {
     final dbStore = DbStoresWeebi.articlePhotos;
     final recordSnapshot = await dbStore.find(_database.db);
     if (recordSnapshot.isEmpty) {
-      throw 'no data';
+      print('no photo db');
     }
     if (recordSnapshot.isNotEmpty) {
       await dbStore.delete(_database.db,
