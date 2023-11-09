@@ -1,6 +1,11 @@
-## 1.0.8+1
+
+## 1.0.8+2
 
 - bump models version + increment sdk
+
+## 1.0.8+1
+
+- bump models version
 
 ## 1.0.8
 
